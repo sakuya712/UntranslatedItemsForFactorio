@@ -49,8 +49,7 @@ def rewrite_file(input_file, english_dict):
         f.write("\n".join(new_lines) + "\n")
 
 
-# セクション名
-section_name = "[item-name]" # MODでセクションがない場合は、空文字""にする
+
 # ファイル名の指定
 tkinter.Tk().withdraw()
 # 英語のcfgを選択
@@ -61,6 +60,16 @@ if english_file is None:
 overwrite_file = filedialog.askopenfile().name
 if overwrite_file is None:
     sys.exit()
+
+# セクション名
+section_name = "[item-name]" # MODでセクションがない場合は、空文字""にする
+
+# 実行処理
+english_dict = load_english_names(english_file)
+rewrite_file(overwrite_file, english_dict)
+
+# セクション名
+section_name = "[entity-name]"
 
 # 実行処理
 english_dict = load_english_names(english_file)
