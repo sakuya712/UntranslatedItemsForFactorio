@@ -61,11 +61,11 @@ overwrite_file = filedialog.askopenfile().name
 if overwrite_file is None:
     sys.exit()
 
-# セクション名
+# セクション名。 MODでセクションがない場合は、[""]にする
 section_names = ["[item-name]", "[entity-name]", "[equipment-name]", "[fluid-name]", "[fuel-category-name]", "[recipe-name]", "[asteroid-chunk-name]"]
 
 for name in section_names:
-    section_name = name # MODでセクションがない場合は、空文字""にする
+    section_name = name
     # 実行処理
     english_dict = load_english_names(english_file)
     rewrite_file(overwrite_file, english_dict)
