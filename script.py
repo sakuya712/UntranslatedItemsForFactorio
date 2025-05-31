@@ -62,17 +62,12 @@ if overwrite_file is None:
     sys.exit()
 
 # セクション名
-section_name = "[item-name]" # MODでセクションがない場合は、空文字""にする
+section_names = ["[item-name]", "[entity-name]", "[equipment-name]", "[fluid-name]", "[fuel-category-name]", "[recipe-name]", "[asteroid-chunk-name]"]
 
-# 実行処理
-english_dict = load_english_names(english_file)
-rewrite_file(overwrite_file, english_dict)
-
-# セクション名
-section_name = "[entity-name]"
-
-# 実行処理
-english_dict = load_english_names(english_file)
-rewrite_file(overwrite_file, english_dict)
+for name in section_names:
+    section_name = name # MODでセクションがない場合は、空文字""にする
+    # 実行処理
+    english_dict = load_english_names(english_file)
+    rewrite_file(overwrite_file, english_dict)
 
 print(f"complete!")
